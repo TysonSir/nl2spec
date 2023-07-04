@@ -1,5 +1,8 @@
 FROM --platform=linux/amd64 ubuntu:jammy
 
+# 换源
+RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
+RUN sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
 RUN apt-get -q update && \
     DEBIAN_FRONTEND=noninteractive \
     apt-get -q install -y \
