@@ -10,7 +10,7 @@ RUN pip install --upgrade pip -i $PIP_SRC && \
 
 
 # 生成基础镜像.
-# docker build --tag nl2spec_base:1.0 --file artifact.DockerfileBase .
+# docker build --tag nl2spec_base:1.0 --file DockerfileBase .
 
 # 删除基础镜像
 # docker rmi nl2spec_base:1.0
