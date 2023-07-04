@@ -16,7 +16,7 @@ WORKDIR /home/nl2spec/src
 
 EXPOSE 5000
 
-CMD ["python3", "-m", "flask", "--app", "frontend.py", "run"]
+CMD ["python3", "frontend.py"]
 
 # 安装&启动
 # docker build --tag nl2spec:latest --file artifact.Dockerfile . && docker run --name nl2spec -d nl2spec:latest

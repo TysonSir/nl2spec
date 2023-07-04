@@ -110,3 +110,6 @@ def subtranslation_gen(form_data):
             if sub_lock[i]:
                 locked_subtranslation_map[sub_nl[i]] = sub_ltl[i]
     return subtranslation_map, locked_subtranslation_map
+
+if __name__ == '__main__':
+    app.run(port=5000, debug=True, host='0.0.0.0')
