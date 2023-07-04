@@ -12,3 +12,7 @@ RUN pip3 install --upgrade pip && \
 
 
 WORKDIR /home/nl2spec
+
+EXPOSE 5000
+
+CMD ["python3", "-m", "flask", "--app", "frontend.py", "run"]
