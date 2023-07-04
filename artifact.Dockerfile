@@ -7,12 +7,19 @@ RUN apt-get -q update && \
 
 COPY . /home/nl2spec
 
-RUN pip3 install --upgrade pip && \
-    pip3 install -r /home/nl2spec/requirements.txt
+ENV PIP_SRC https://pypi.tuna.tsinghua.edu.cn/simple
+RUN pip3 install --upgrade pip -i $PIP_SRC && \
+    pip3 install -r /home/nl2spec/requirements.txt -i $PIP_SRC
 
 
-WORKDIR /home/nl2spec
+WORKDIR /home/nl2spec/src
 
 EXPOSE 5000
 
 CMD ["python3", "-m", "flask", "--app", "frontend.py", "run"]
+
+# 安装&启动
+# docker build --tag nl2spec:latest --file artifact.Dockerfile . && docker run --name nl2spec -d nl2spec:latest
+
+# 卸载
+# docker stop nl2spec && docker rm nl2spec && docker rmi nl2spec:latest
