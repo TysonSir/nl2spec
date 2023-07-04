@@ -5,8 +5,8 @@ WORKDIR $CODE_DIR
 
 ENV PIP_SRC https://pypi.tuna.tsinghua.edu.cn/simple
 COPY ./requirements.txt $CODE_DIR
-RUN pip3 install --upgrade pip -i $PIP_SRC && \
-    pip3 install -r /home/nl2spec/requirements.txt -i $PIP_SRC
+RUN pip install --upgrade pip -i $PIP_SRC && \
+    pip install -r requirements.txt -i $PIP_SRC
 
 
 # 生成基础镜像.
