@@ -1,19 +1,6 @@
-FROM --platform=linux/amd64 ubuntu:jammy
-
-# 换源
-RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak
-RUN sed -i 's/http:\/\/archive.ubuntu.com/https:\/\/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.list
-RUN apt-get -q update && \
-    DEBIAN_FRONTEND=noninteractive \
-    apt-get -q install -y \
-    python3 python3-pip vim
+FROM nl2spec_base:1.0
 
 COPY . /home/nl2spec
-
-ENV PIP_SRC https://pypi.tuna.tsinghua.edu.cn/simple
-RUN pip3 install --upgrade pip -i $PIP_SRC && \
-    pip3 install -r /home/nl2spec/requirements.txt -i $PIP_SRC
-
 
 WORKDIR /home/nl2spec/src
 
