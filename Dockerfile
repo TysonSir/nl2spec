@@ -9,7 +9,8 @@ RUN pip install -r requirements.txt -i $PIP_SRC
 
 EXPOSE 5000
 
-CMD ["python", "src/frontend.py"]
+WORKDIR $CODE_DIR/src
+CMD ["python", "frontend.py"]
 
 # 安装&启动
 # docker build --tag nl2spec:latest --file Dockerfile . && docker run -v ~/nl2spec_vol:/workspace/nl2spec --name nl2spec -d -p 8001:5000 nl2spec:latest
